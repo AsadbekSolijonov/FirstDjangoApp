@@ -21,10 +21,6 @@ def register(request):
     return render(request, 'accounts/register.html', context=context)
 
 
-def login_account(request):
-    pass
-
-
 def profile(request):
     return render(request, 'accounts/profile.html')
 
