@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<a href="{% url 'home' %}">Students List</a>
+
+<div class="card mt-5">
+
+    <div class="card-header">
+        <h3 class="text-success">Save new student</h3>
+    </div>
+
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+
+            <form method="POST" action="{% url 'add_student' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+
+        </blockquote>
+    </div>
+</div>
+
+{% endblock %}

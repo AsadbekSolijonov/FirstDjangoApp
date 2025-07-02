@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="card mt-5">
+
+        <div class="card-header">
+            <h3><span class="text-danger">Delete</span> {{ student.fullname }}</h3>
+        </div>
+
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+
+                <form method="POST" action="{% url 'delete_student' student.id %}">
+                    {% csrf_token %}
+                    {% if student.image %}
+                        <img src="{{ student.image.url }}" alt="rasm" style="width: 100px;">
+                    {% else %}
+                        <img src="#" alt="Rasm mavjud emas!">
+                        <p>Rasm mavjud emas!</p>
+                    {% endif %}
+
+                    <p>Ism: {{ student.first_name }}</p>
+                    <p>Familya: {{ student.last_name }}</p>
+                    <p>Tel: {{ student.phone }}</p>
+                    <p>Gender: {{ student.gender }}</p>
+                    <p>Payed: {{ student.payed|yesno:'✅,❌' }}</p>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a class="btn btn-secondary" href="{% url 'home' %}">Cancel</a>
+                </form>
+            </blockquote>
+        </div>
+
+    </div>
+
+{% endblock %}

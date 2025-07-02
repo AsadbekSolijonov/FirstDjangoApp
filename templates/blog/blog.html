@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ziyo</title>
+</head>
+<body>
+
+    <h1>Ziyo maskani</h1>
+
+    <h3>1-masala</h3>
+    <p>{{ shart }}</p>
+    <p>Natija: {{ a }} + {{ b }} = {{ c }}</p>
+    <p>{{ date_time }}</p>
+
+    <h3>Talabalar ro'yxati:</h3>
+    <ol>
+        {% for student in students %}
+            <li>
+                {% if student.payed %}
+                ✅
+                {% else %}
+                ❌
+                {% endif %}
+
+                {{ student.first_name }}  {{ student.last_name }}
+            </li>
+        {% endfor %}
+    </ol>
+
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Yangi_Oʻzbekiston_-_Yoshlar_Ziyo_Maskani.jpg/1200px-Yangi_Oʻzbekiston_-_Yoshlar_Ziyo_Maskani.jpg" alt="rasm">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci molestiae repellendus rerum unde voluptate.
+        Aspernatur distinctio earum ex id modi non officia omnis perspiciatis quam, repudiandae saepe, temporibus vel
+        veniam?
+    </p>
+
+</body>
+</html>
